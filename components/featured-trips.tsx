@@ -73,8 +73,8 @@ export default function FeaturedTrips() {
 
         {/* Trip Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {trips.map((trip) => (
-            <div className="max-w-sm mx-auto h-[500px] bg-white rounded-3xl shadow-lg overflow-clip">
+          {trips.map((trip,i) => (
+            <div key={i} className="max-w-sm mx-auto h-[500px] bg-white rounded-3xl shadow-lg overflow-clip">
               {/* Image Section */}
               <div className="relative h-[60%] ">
                 <Image src={trip.image} alt="California Sunset Boat Cruise" fill className="object-cover" />

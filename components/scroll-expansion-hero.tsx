@@ -333,9 +333,9 @@ const ScrollExpandMedia = ({
                 <motion.div
                   style={{ transform: `translateX(${textTranslateX}vw)` }}
                   className="relative flex  w-full ">
-                  <Button className='bg-[#f08c2e] rounded-3xl text-2xl w-[250px] p-6'>
+                  <Button className='bg-[#f08c2e] rounded-3xl  text-2xl w-[250px] p-6'>
                     {/* <Ship className="w-4 h-4" /> */}
-                    <span>View Trips</span>
+                    <span >View Trips</span>
                   </Button>
                 </motion.div>
               </div>

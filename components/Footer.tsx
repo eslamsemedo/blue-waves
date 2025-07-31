@@ -5,27 +5,6 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      {/* Newsletter Section */}
-      <div className="border-b border-gray-800">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold mb-2">Subscribe to see secret deals prices</h3>
-              <p className="text-xl text-gray-300">drop the moment you sign up!</p>
-            </div>
-            <div className="flex gap-4 w-full lg:w-auto max-w-md">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-500"
-                />
-                <button className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors">
-                  Subscribe
-                </button>
-              </div>
-          </div>
-        </div>
-      </div>
 
       {/* Main Footer Content */}
       <div className="max-w-6xl mx-auto px-4 py-12">
