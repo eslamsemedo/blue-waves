@@ -21,9 +21,7 @@ export default function BookingPlatform() {
               <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                 Demonstrates commitment to user data security through encryption and secure payment practices
               </p>
-              <button className="flex items-center justify-center mx-auto text-gray-700 font-medium text-sm hover:text-gray-900 transition-colors">
-                Learn More <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              
             </div>
 
             {/* Card 2 - Light Pink */}
@@ -35,9 +33,7 @@ export default function BookingPlatform() {
               <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                 Demonstrates commitment to user data security through encryption and secure payment practices
               </p>
-              <button className="flex items-center justify-center mx-auto text-gray-700 font-medium text-sm hover:text-gray-900 transition-colors">
-                Learn More <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              
             </div>
 
             {/* Card 3 - Light Blue */}
@@ -49,9 +45,7 @@ export default function BookingPlatform() {
               <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                 Demonstrates commitment to user data security through encryption and secure payment practices
               </p>
-              <button className="flex items-center justify-center mx-auto text-gray-700 font-medium text-sm hover:text-gray-900 transition-colors">
-                Learn More <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              
             </div>
 
             {/* Card 4 - Light Purple */}
@@ -63,9 +57,7 @@ export default function BookingPlatform() {
               <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                 Demonstrates commitment to user data security through encryption and secure payment practices
               </p>
-              <button className="flex items-center justify-center mx-auto text-gray-700 font-medium text-sm hover:text-gray-900 transition-colors">
-                Learn More <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              
             </div>
           </div>
 
