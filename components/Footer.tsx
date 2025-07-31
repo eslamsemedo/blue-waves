@@ -1,3 +1,4 @@
+import { Facebook, Instagram } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -12,7 +13,7 @@ const Footer = () => {
               <h3 className="text-2xl font-bold mb-2">Subscribe to see secret deals prices</h3>
               <p className="text-xl text-gray-300">drop the moment you sign up!</p>
             </div>
-            {/* <div className="flex gap-4 w-full lg:w-auto max-w-md">
+            <div className="flex gap-4 w-full lg:w-auto max-w-md">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -21,7 +22,7 @@ const Footer = () => {
                 <button className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors">
                   Subscribe
                 </button>
-              </div> */}
+              </div>
           </div>
         </div>
       </div>
@@ -203,8 +204,10 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">© 2025 Blue Waves. All rights reserved.</p>
-            <div className="text-gray-400 text-sm">
-              <span className="font-semibold text-white">Follow us</span>
+            <div className="text-gray-400 text-sm flex gap-2">
+              {/* <span className="font-semibold text-white">Follow us</span> */}
+              <Facebook className='h-4 w-4'/>
+              <Instagram className='h-4 w-4'/>
             </div>
           </div>
         </div>
