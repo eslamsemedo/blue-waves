@@ -3,7 +3,7 @@ import { BrandScroller } from "./brand-scoller"
 
 export default function BookingPlatform() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className=" bg-white">
       {/* Why Us Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">

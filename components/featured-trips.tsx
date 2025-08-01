@@ -59,73 +59,67 @@ export default function FeaturedTrips() {
   )
 
   return (
-    <section className="w-full py-12 px-4 md:px-6 lg:px-8">
+    <section className="w-full py-8 sm:py-12 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8 gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 sm:mb-8 gap-4">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Our Featured Trips</h2>
-            <p className="text-gray-600 text-lg">Favorite Trip based on customer reviews</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">Our Featured Trips</h2>
+            <p className="text-gray-600 text-base sm:text-lg">Favorite Trip based on customer reviews</p>
           </div>
-
-          
         </div>
 
         {/* Trip Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {trips.map((trip,i) => (
-            <div key={i} className="max-w-sm mx-auto h-[500px] bg-white rounded-3xl shadow-lg overflow-clip">
+            <div key={i} className="max-w-sm mx-auto h-[450px] sm:h-[500px] bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-clip">
               {/* Image Section */}
-              <div className="relative h-[60%] ">
+              <div className="relative h-[55%] sm:h-[60%]">
                 <Image src={trip.image} alt="California Sunset Boat Cruise" fill className="object-cover" />
 
                 {/* Top Rated Badge */}
-                <div className="absolute top-4 left-4">
-                  <div className="bg-white rounded-full px-4 py-2 shadow-md">
-                    <span className="text-orange-500 font-semibold text-sm">Top Rated</span>
+                <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                  <div className="bg-white rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-md">
+                    <span className="text-orange-500 font-semibold text-xs sm:text-sm">Top Rated</span>
                   </div>
                 </div>
 
                 {/* Heart Icon */}
-                <div className="absolute top-4 right-4">
-                  <div className="bg-white rounded-full p-2 shadow-md">
-                    <Heart className="w-5 h-5 text-gray-600" />
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                  <div className="bg-white rounded-full p-1.5 sm:p-2 shadow-md">
+                    <Heart className="w-4 sm:w-5 h-4 sm:h-5 text-gray-600" />
                   </div>
                 </div>
 
                 {/* Rating Badge */}
-                <div className="absolute bottom-4 z-50 right-4 ">
-                  <div className="bg-white rounded-full px-4 py-2 shadow-md flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                    <span className="font-semibold text-sm">4.96</span>
-                    <span className="text-gray-500 text-sm">{"(672 reviews)"}</span>
+                <div className="absolute bottom-3 sm:bottom-4 z-50 right-3 sm:right-4">
+                  <div className="bg-white rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-md flex items-center gap-1">
+                    <Star className="w-3 sm:w-4 h-3 sm:h-4 text-yellow-500 fill-yellow-500" />
+                    <span className="font-semibold text-xs sm:text-sm">4.96</span>
+                    <span className="text-gray-500 text-xs sm:text-sm hidden sm:inline">{"(672 reviews)"}</span>
                   </div>
                 </div>
               </div>
 
               {/* Content Section */}
-              <div className="p-6 rounded-4xl bg-white h-[50%] -translate-y-[35px]">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">California Sunset/Twilight Boat Cruise</h2>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-4xl bg-white h-[45%] sm:h-[50%] -translate-y-[25px] sm:-translate-y-[35px]">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">{trip.title}</h2>
 
                 {/* Duration and Guest Info */}
-                <div className="flex items-center gap-6 mb-6 text-gray-500">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mb-4 sm:mb-6 text-gray-500">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span className="text-sm">2 days 3 nights</span>
+                    {trip.desc}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" />
-                    <span className="text-sm">4-6 guest</span>
-                  </div>
+                  
                 </div>
 
                 {/* Price and Book Button */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold text-gray-900">$48.25</span>
-                    <span className="text-gray-500">/ person</span>
+                    <span className="text-2xl sm:text-3xl font-bold text-gray-900">${trip.price}</span>
+                    <span className="text-gray-500 text-sm">/ person</span>
                   </div>
-                  <button className="bg-gray-200 hover:bg-gray-300 transition-colors px-6 py-3 rounded-full font-semibold text-gray-800">
+                  <button className="bg-gray-200 hover:bg-gray-300 transition-colors px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-gray-800 text-sm sm:text-base">
                     Book Now
                   </button>
                 </div>

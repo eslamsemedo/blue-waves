@@ -96,15 +96,20 @@ const avatarImages = [...testimonials.map((value) => value.author.avatar).slice(
 
 export default function TestimonialSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const testimonialsPerView = 3
-  const maxIndex = Math.max(0, testimonials.length - testimonialsPerView)
+  const testimonialsPerView = 5
+
+  // Create duplicated testimonials for seamless infinite scroll
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials]
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex))
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0))
+    setCurrentIndex((prev) => {
+      const newIndex = prev - 1
+      return newIndex < 0 ? testimonials.length + newIndex : newIndex
+    })
   }
 
   const renderStars = (rating: number) => {
@@ -116,42 +121,20 @@ export default function TestimonialSlider() {
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="text-center mb-12">
-        {/* Overlapping Avatars */}
-        <div className="flex justify-center mb-6">
-          <div className="flex -space-x-2">
-            {avatarImages.map((avatar, index) => (
-              <img
-                key={index}
-                src={avatar || "/placeholder.svg"}
-                alt={`Avatar ${index + 1}`}
-                className="w-8 h-8 rounded-full border-2 border-white object-cover"
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Badge */}
-        <div className="mb-6">
-          <Badge className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-1 rounded-full">Testimonials</Badge>
-        </div>
-
-        {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{"Don't take our word for it"}</h2>
-      </div>
+      
 
       {/* Testimonials Slider */}
       <div className="relative">
         <div className="overflow-hidden">
           <div
-            className="flex transition-transform duration-300 ease-in-out"
+            className="flex transition-transform duration-800 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / testimonialsPerView)}%)`,
-              width: `${(testimonials.length / testimonialsPerView) * 100}%`,
+              transform: `translateX(-${currentIndex * 50}%)`,
+              width: `${duplicatedTestimonials.length * 50}%`,
             }}
           >
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="w-full md:w-1/3 flex-shrink-0 px-3">
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div key={`${testimonial.id}-${index}`} className="w-1/2 flex-shrink-0 px-3">
                 <div className="bg-white border border-gray-200 rounded-xl p-6 h-full shadow-sm hover:shadow-md transition-shadow">
                   {/* Title */}
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">{testimonial.title}</h3>
@@ -187,18 +170,16 @@ export default function TestimonialSlider() {
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full w-12 h-12 border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed bg-transparent"
+            className="rounded-full w-12 h-12 border-gray-300 hover:bg-gray-50 bg-transparent"
             onClick={prevSlide}
-            disabled={currentIndex === 0}
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full w-12 h-12 border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed bg-transparent"
+            className="rounded-full w-12 h-12 border-gray-300 hover:bg-gray-50 bg-transparent"
             onClick={nextSlide}
-            disabled={currentIndex >= maxIndex}
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
