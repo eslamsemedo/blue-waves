@@ -124,9 +124,9 @@ const ScrollExpandMedia = ({
             {/* Expansion content starts here */}
             <motion.div
               className='absolute inset-0 z-0 h-full'
-              // initial={{ opacity: 1 }}
-              // animate={{ opacity: 1 - scrollProgress }}
-              // transition={{ duration: 0.1 }}
+            // initial={{ opacity: 1 }}
+            // animate={{ opacity: 1 - scrollProgress }}
+            // transition={{ duration: 0.1 }}
             >
               <Image
                 src={bgImageSrc}
@@ -166,11 +166,11 @@ const ScrollExpandMedia = ({
                           src={
                             mediaSrc.includes('embed')
                               ? mediaSrc +
-                                (mediaSrc.includes('?') ? '&' : '?') +
-                                'autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1'
+                              (mediaSrc.includes('?') ? '&' : '?') +
+                              'autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1'
                               : mediaSrc.replace('watch?v=', 'embed/') +
-                                '?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1&playlist=' +
-                                  mediaSrc.split('v=')[1]
+                              '?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1&playlist=' +
+                              mediaSrc.split('v=')[1]
                           }
                           className='w-full h-full rounded-xl'
                           frameBorder='0'
@@ -270,7 +270,18 @@ const ScrollExpandMedia = ({
                   <motion.div
                     style={{ transform: `translateX(${textTranslateX}vw)` }}
                     className="relative flex  w-full ">
-                    <Button className='bg-[#f08c2e] rounded-3xl  text-2xl w-[250px] p-6'>
+                    <Button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const element = document.querySelector("#trips");
+                        if (element) {
+                          element.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                          });
+                        }
+                      }}
+                      className='bg-[#f08c2e] rounded-3xl  text-2xl w-[250px] p-6 cursor-pointer hover:scale-105 transition-all duration-300'>
                       {/* <Ship className="w-4 h-4" /> */}
                       <span >View Trips</span>
                     </Button>

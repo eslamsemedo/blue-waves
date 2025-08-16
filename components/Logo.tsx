@@ -21,9 +21,9 @@ const Logo = () => {
   }, [])
 
   const navItems = [
-    { href: "#Trips", label: "Trips" },
-    { href: "#skills", label: "Skills" },
-    { href: "#Testimonials", label: "Testimonials" },
+    { href: "#trips", label: "Trips" },
+    { href: "#gallery", label: "Gallery" },
+    { href: "#testimonials", label: "Testimonials" },
     { href: "#contact", label: "Contact" }
   ]
 
@@ -58,7 +58,21 @@ const Logo = () => {
                 {
                   navItems.map((value, i) => {
                     return (
-                      <a key={i} href={value.href} className="text-gray-700 hover:text-gray-900 font-medium transition-colors">
+                      <a 
+                        key={i} 
+                        href={value.href} 
+                        className="text-gray-700 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const element = document.querySelector(value.href);
+                          if (element) {
+                            element.scrollIntoView({ 
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                          }
+                        }}
+                      >
                         {value.label}
                       </a>
                     )
@@ -115,7 +129,14 @@ const Logo = () => {
                     transition={{ delay: index * 0.1 }}
                     onClick={(e) => {
                       e.preventDefault();
-                      window.location.href = item.href;
+                      const element = document.querySelector(item.href);
+                      if (element) {
+                        element.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                        setIsOpen(false); // Close mobile menu after clicking
+                      }
                     }}
                     className="block py-3 text-dark-600 dark:text-dark-300 hover:text-primary transition-colors duration-300"
                   >

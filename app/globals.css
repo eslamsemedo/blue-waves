@@ -7,12 +7,12 @@
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-33.333%);
   }
 }
 
 .animate-marquee {
-  animation: marquee var(--duration, 40s) linear infinite;
+  animation: marquee var(--duration, 60s) linear infinite;
 }
 @font-face {
   font-family: nanito;

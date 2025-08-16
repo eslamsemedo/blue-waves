@@ -9,7 +9,7 @@ export default function FeaturedTrips() {
   const trips = [
     {
       id: 1,
-      image: "https://placehold.co/600x400.svg",
+      image: "/img/orange.jpg",
       badge: { text: "Top Rated", variant: "default" as const },
       rating: 4.96,
       reviews: 672,
@@ -20,7 +20,7 @@ export default function FeaturedTrips() {
     },
     {
       id: 2,
-      image: "https://placehold.co/600x400.svg",
+      image: "/img/paradis.jpg",
       badge: { text: "Best Sale", variant: "secondary" as const },
       rating: 4.96,
       reviews: 672,
@@ -31,7 +31,7 @@ export default function FeaturedTrips() {
     },
     {
       id: 3,
-      image: "https://placehold.co/600x400.svg",
+      image: "/img/dolphin.jpg",
       badge: { text: "25% Off", variant: "destructive" as const },
       rating: 4.96,
       reviews: 672,
@@ -78,18 +78,18 @@ export default function FeaturedTrips() {
                 <Image src={trip.image} alt="California Sunset Boat Cruise" fill className="object-cover" />
 
                 {/* Top Rated Badge */}
-                <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                {/* <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
                   <div className="bg-white rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-md">
                     <span className="text-orange-500 font-semibold text-xs sm:text-sm">Top Rated</span>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Heart Icon */}
-                <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                {/* <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
                   <div className="bg-white rounded-full p-1.5 sm:p-2 shadow-md">
                     <Heart className="w-4 sm:w-5 h-4 sm:h-5 text-gray-600" />
                   </div>
-                </div>
+                </div> */}
 
                 {/* Rating Badge */}
                 <div className="absolute bottom-3 sm:bottom-4 z-50 right-3 sm:right-4">
@@ -102,19 +102,21 @@ export default function FeaturedTrips() {
               </div>
 
               {/* Content Section */}
-              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-4xl bg-white h-[45%] sm:h-[50%] -translate-y-[25px] sm:-translate-y-[35px]">
-                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">{trip.title}</h2>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-4xl bg-white h-[45%] sm:h-[50%] -translate-y-[25px] sm:-translate-y-[35px] flex flex-col">
+                <div className="flex-1">
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">{trip.title}</h2>
 
-                {/* Duration and Guest Info */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mb-4 sm:mb-6 text-gray-500">
-                  <div className="flex items-center gap-2">
-                    {trip.desc}
+                  {/* Duration and Guest Info */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mb-4 sm:mb-6 text-gray-500">
+                    <div className="flex items-center gap-2">
+                      {trip.desc}
+                    </div>
+                    
                   </div>
-                  
                 </div>
 
-                {/* Price and Book Button */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0">
+                {/* Price and Book Button - Always at bottom */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 mt-auto mb-[14px]">
                   <div className="flex items-baseline gap-1">
                     <span className="text-2xl sm:text-3xl font-bold text-gray-900">${trip.price}</span>
                     <span className="text-gray-500 text-sm">/ person</span>

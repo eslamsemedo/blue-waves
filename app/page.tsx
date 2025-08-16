@@ -44,15 +44,23 @@ export default function Home() {
       <Demo />
       {/* <Navigation /> */}
       <Logo />
-      <FeaturedTrips />
-      <Component />
+      <section id="trips">
+        <FeaturedTrips />
+      </section>
+      <section id="gallery">
+        <Component />
+      </section>
       <LuxuryTravelHero />
-      <TestimonialsSection
-        title="Trusted by developers worldwide"
-        description="Join thousands of developers who are already building the future with our AI platform"
-        testimonials={testimonials}
-      />
-      <BookingPlatform />
+      <section id="testimonials">
+        <TestimonialsSection
+          title="Trusted by developers worldwide"
+          description="Join thousands of developers who are already building the future with our AI platform"
+          testimonials={testimonials}
+        />
+      </section>
+      <section id="contact">
+        <BookingPlatform />
+      </section>
       <Footer />
     </>
   );
